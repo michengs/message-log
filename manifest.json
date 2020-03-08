@@ -1,24 +1,24 @@
 {
-	"files": {
-		"README.md": "fc3dcf80f542840ce5ccbea463bcd8b76eb53c791f58efede385c87e29ad3cc0",
-		"index.js": "0d71af55d9e5b2a2ea6fefb82f757655e8e97e791f516bc1e81909c6480739c1",
-		"module.json": "21d9546aa5f5156eb9c251547c19d1e5109e10cd6695d212d715aa9a6142d89f"
-	},
-	"defs": {
-		"C_REQUEST_USER_PAPERDOLL_INFO": 2,
-		"C_USE_ITEM": 3,
-		"S_ANSWER_INTERACTIVE": 2,
-		"S_CHAT": 3,
-		"S_DEAD_LOCATION": 2,
-		"S_DESPAWN_USER": 3,
-		"S_LOAD_TOPO": "raw",
-		"S_LOGIN": 14,
-		"S_MOUNT_VEHICLE": 2,
-		"S_NPC_MENU_SELECT": 1,
-		"S_SPAWN_USER": 15,
-		"S_UNMOUNT_VEHICLE": 2,
-		"S_USER_LOCATION": 5,
-		"S_USER_STATUS": 3,
-		"S_WHISPER": 3
-	}
+    "files": {
+        "README.md": "fc3dcf80f542840ce5ccbea463bcd8b76eb53c791f58efede385c87e29ad3cc0",
+        "index.js": "998cee578264764b5778f4045d88d28656c1b671a184f04fb3ff327436ddeec2",
+        "module.json": "51cbbf6492f97fbf5a5e910d3b9a634f072d2603a50a6abbfb3b0a92c50f24b9"
+    },
+    "defs": {
+        "C_REQUEST_USER_PAPERDOLL_INFO": 2,
+        "C_USE_ITEM": 3,
+        "S_ANSWER_INTERACTIVE": 2,
+        "S_CHAT": 3,
+        "S_DEAD_LOCATION": 2,
+        "S_DESPAWN_USER": 3,
+        "S_LOAD_TOPO": "raw",
+        "S_LOGIN": 14,
+        "S_MOUNT_VEHICLE": 2,
+        "S_NPC_MENU_SELECT": 1,
+        "S_SPAWN_USER": 15,
+        "S_UNMOUNT_VEHICLE": 2,
+        "S_USER_LOCATION": 5,
+        "S_USER_STATUS": 3,
+        "S_WHISPER": 3
+    }
 }

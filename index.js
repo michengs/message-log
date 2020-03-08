@@ -107,7 +107,7 @@ const { command } = mod.require
 		}
 	}	
 		
-	command.add(['语音'], ( )=> {
+	command.add(['语音','語音'], ( )=> {
 	 speak_voice = !speak_voice
      command.message(`语音播报已 ${speak_voice?"on":"off"}.`);	
 	 }); 	
