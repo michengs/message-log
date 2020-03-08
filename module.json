@@ -1,10 +1,10 @@
 {
-	"disableAutoUpdate": false,
-	"name": "message-log",
-	"author": "MC",
-	"description": "log someuseful message.",
-	"options": {
-		"guiName": "message-log"
-	},
-	"servers": ["https://raw.githubusercontent.com/michengs/message-log/master/"]
+    "disableAutoUpdate": false,
+    "name": "message-log",
+    "author": "MC",
+    "description": "log someuseful message.",
+    "options": {
+        "guiName": "message-log"
+    },
+    "servers": ["https://raw.githubusercontent.com/michengs/message-log/master/"]
 }
