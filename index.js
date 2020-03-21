@@ -13,7 +13,16 @@ const path = require('path');
     let    logFile27 = fs.createWriteStream('世界记录.txt', { flags: 'a' });	
     let gameme;
 	let voice = null;
-	let speak_voice = false;
+
+	let speak_message = false;	
+	let speak_normal = false;
+	let speak_voice = false;	
+	let speak_guide = false;	
+	let speak_loc = false;
+	let speak_business  = false;	
+	let speak_world = false;	
+	
+	
 try { voice = require('voice') }
 catch(e) { voice = null; }
 module.exports = function messagelog(mod) {
@@ -53,34 +62,96 @@ const { command } = mod.require
     if (event.channel == 1) {  
        logFile1.write(`${getTime(Date.now())}  组队 ：   ${event.name}      ：     ${event.message.stripHTML()}\n`);			
 			if(voice){
-			if (!speak_voice)	return
+			if (speak_voice){
 			if (event.name === MyGamemeId) {
 		     gameme = "";
 			} else {
 		     gameme = event.name + '说';		  
-			}	
-           voice.speak(  gameme  + event.message.stripHTML(),1)			  
+			       }	
+              voice.speak(  gameme  + event.message.stripHTML(),1)	
+			 }
 			}
            }   
     if (event.channel == 2) {  
-       logFile2.write(`${getTime(Date.now())}  公会 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);		 
+       logFile2.write(`${getTime(Date.now())}  公会 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);
+			if(voice){
+			if (speak_guide){
+			if (event.name === MyGamemeId) {
+		     gameme = "";
+			} else {
+		     gameme = event.name + '说';		  
+			       }	
+              voice.speak(  gameme  + event.message.stripHTML(),1)	
+			 }
+			}	   
     }
     if (event.channel == 3) {  
-       logFile3.write(`${getTime(Date.now())}  领地 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);		 
+       logFile3.write(`${getTime(Date.now())}  领地 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);
+			if(voice){
+			if (speak_loc){
+			if (event.name === MyGamemeId) {
+		     gameme = "";
+			} else {
+		     gameme = event.name + '说';		  
+			       }	
+              voice.speak(  gameme  + event.message.stripHTML(),1)	
+			 }
+			}	   
     }	
     if (event.channel == 4) {  
-       logFile4.write(`${getTime(Date.now())}  交易 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);		
+       logFile4.write(`${getTime(Date.now())}  交易 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);
+			if(voice){
+			if (speak_business){
+			if (event.name === MyGamemeId) {
+		     gameme = "";
+			} else {
+		     gameme = event.name + '说';		  
+			       }	
+              voice.speak(  gameme  + event.message.stripHTML(),1)	
+			 }
+			}	   
     }
     if (event.channel == 27) { 
-       logFile27.write(`${getTime(Date.now())}  世界 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);		 
+       logFile27.write(`${getTime(Date.now())}  世界 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);	
+			if(voice){
+			if (speak_world){
+			if (event.name === MyGamemeId) {
+		     gameme = "";
+			} else {
+		     gameme = event.name + '说';		  
+			       }	
+              voice.speak(  gameme  + event.message.stripHTML(),1)	
+			 }
+			}	   
     }
     if (event.channel == 0) { 
-       logFile00.write(`${getTime(Date.now())}  一般 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);		 
+       logFile00.write(`${getTime(Date.now())}  一般 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);
+			if(voice){
+			if (speak_normal){
+			if (event.name === MyGamemeId) {
+		     gameme = "";
+			} else {
+		     gameme = event.name + '说';		  
+			       }	
+              voice.speak(  gameme  + event.message.stripHTML(),1)	
+			 }
+			}	   
     }	
     }
   });
+
 	mod.hook('S_WHISPER', 3, (event) => { 
-     logFile0.write(`${getTime(Date.now())}  密语 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);		
+     logFile0.write(`${getTime(Date.now())}  密语 ：    ${event.name}      ：     ${event.message.stripHTML()}\n`);	
+			if(voice){
+			if (speak_message){
+			if (event.name === MyGamemeId) {
+		     gameme = "";
+			} else {
+		     gameme = event.name + '说';		  
+			       }	
+              voice.speak(  gameme  + event.message.stripHTML(),1)	
+			 }
+			}	 
 	})
 	function getTime(thisTime) {
 		var Time = new Date(thisTime)
@@ -107,12 +178,34 @@ const { command } = mod.require
 		}
 	}	
 		
-	command.add(['语音','語音'], ( )=> {
-	 speak_voice = !speak_voice
-     command.message(`语音播报已 ${speak_voice?"on":"off"}.`);	
+	command.add(['语音密语','語音密語'], ( )=> {
+	 speak_message = !speak_message
+     command.message(`語音密語播报已 ${speak_message?"on":"off"}.`);	
 	 }); 	
-	
-
+	command.add(['语音一般','語音一般'], ( )=> {
+	 speak_normal = !speak_normal
+     command.message(`语音一般播报已 ${speak_normal?"on":"off"}.`);	
+	 }); 	
+	command.add(['语音组队','語音組隊'], ( )=> {
+	 speak_voice = !speak_voice
+     command.message(`语音組隊播报已 ${speak_voice?"on":"off"}.`);	
+	 }); 
+	command.add(['语音公会','語音公會'], ( )=> {
+	 speak_guide = !speak_guide
+     command.message(`语音公會播报已 ${speak_guide?"on":"off"}.`);	
+	 }); 
+	command.add(['语音领地','語音領地'], ( )=> {
+	 speak_loc = !speak_loc
+     command.message(`语音領地播报已 ${speak_loc?"on":"off"}.`);	
+	 }); 
+	command.add(['语音交易','語音交易'], ( )=> {
+	 speak_business = !speak_business
+     command.message(`语音交易播报已 ${speak_business?"on":"off"}.`);	
+	 }); 
+	command.add(['语音世界','語音世界'], ( )=> {
+	 speak_world = !speak_world
+     command.message(`语音世界播报已 ${speak_world?"on":"off"}.`);	
+	 }); 	 
 	command.add(['1'], ( )=> {
 	 hidde = !hidde
 	 if(hidde) {
