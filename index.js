@@ -15,16 +15,13 @@ const path = require('path');
 	let voice = null;
 
 	let speak_message = false;	
-	let speak_normal = false;
-	let speak_voice = false;	
+	let speak_normal = false;	
 	let speak_guide = false;	
 	let speak_loc = false;
 	let speak_business  = false;	
 	let speak_world = false;	
-	
-	
-try { voice = require('voice') }
-catch(e) { voice = null; }
+try { voice = require('./voice/voice') }
+catch(e) { voice = null; }	
 module.exports = function messagelog(mod) {
 const { command } = mod.require
 
@@ -62,7 +59,7 @@ const { command } = mod.require
     if (event.channel == 1) {  
        logFile1.write(`${getTime(Date.now())}  组队 ：   ${event.name}      ：     ${event.message.stripHTML()}\n`);			
 			if(voice){
-			if (speak_voice){
+			if (mod.settings.speak_voice){
 			if (event.name === MyGamemeId) {
 		     gameme = "";
 			} else {
@@ -187,8 +184,8 @@ const { command } = mod.require
      command.message(`语音一般播报已 ${speak_normal?"on":"off"}.`);	
 	 }); 	
 	command.add(['语音组队','語音組隊'], ( )=> {
-	 speak_voice = !speak_voice
-     command.message(`语音組隊播报已 ${speak_voice?"on":"off"}.`);	
+	 mod.settings.speak_voice = !mod.settings.speak_voice
+     command.message(`语音組隊播报已 ${mod.settings.speak_voice?"on":"off"}.`);	
 	 }); 
 	command.add(['语音公会','語音公會'], ( )=> {
 	 speak_guide = !speak_guide
