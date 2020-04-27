@@ -4,7 +4,10 @@
     "author": "MC",
     "description": "log someuseful message.",
     "options": {
-        "guiName": "message-log"
+        "niceName": "message-log",
+        "settingsVersion": 2,
+        "settingsFile": "config.json",
+        "settingsMigrator": "settings_migrator.js"
     },
     "servers": ["https://raw.githubusercontent.com/michengs/message-log/master/"]
 }
